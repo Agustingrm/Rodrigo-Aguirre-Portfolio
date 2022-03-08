@@ -24,3 +24,4 @@ yarn-error.log*
 
 # Content and others
 Content
+sanity/node_modules

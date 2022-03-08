@@ -6,19 +6,22 @@ import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectPage from "./pages/ProjectPage";
 import GlobalStyles from "./styles/GlobalStyles";
+import GlobalState from "./context/GlobalState";
 
 function App() {
   return (
     <>
-      <GlobalStyles />
-      <Menu />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/projects/:project" element={<ProjectPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
+      <GlobalState>
+        <GlobalStyles />
+        <Menu />
+        <Routes basename="/test_repository">
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/projects/:project" element={<ProjectPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </GlobalState>
     </>
   );
 }
