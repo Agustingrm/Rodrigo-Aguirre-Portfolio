@@ -30,6 +30,11 @@ export default {
       type: "string",
     },
     {
+      name: "location",
+      title: "Ubicacion",
+      type: "string",
+    },
+    {
       name: "coverImage",
       title: "Imagen de Portada",
       type: "image",

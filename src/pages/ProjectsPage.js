@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Project from "../components/Project";
-
-let x = [0, 1, 2, 3];
+import PortfolioContext from "../context/PortfolioContext";
+import { useContext } from "react";
 
 const SectionStyles = styled.section`
   display: grid;
@@ -14,17 +14,22 @@ const SectionStyles = styled.section`
 `;
 
 function ProjectsPage() {
-  return (
-    <SectionStyles>
-      {x.map((i) => {
-        return (
-          <Link to="/projects/project">
-            <Project key={i} />
-          </Link>
-        );
-      })}
-    </SectionStyles>
-  );
+  const context = useContext(PortfolioContext);
+  if (context.loading) {
+    return <p>Loading...</p>;
+  } else {
+    return (
+      <SectionStyles>
+        {context.projects.general.map((project) => {
+          return (
+            <Link to={`/projects/${project.slug.current}`} key={project.slug.current}>
+              <Project project={project} />
+            </Link>
+          );
+        })}
+      </SectionStyles>
+    );
+  }
 }
 
 export default ProjectsPage;

@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import PortfolioContext from "../context/PortfolioContext";
-import { useContext } from "react";
 
 const SectionStyles = styled.section`
   text-align: center;
@@ -13,10 +11,6 @@ const SectionStyles = styled.section`
 `;
 
 function HomePage() {
-  const context = useContext(PortfolioContext);
-  if (context.loading) {
-    console.log(context.loading);
-  }
   return (
     <SectionStyles>
       <h2>Ing. Rodrigo Aguirre</h2>

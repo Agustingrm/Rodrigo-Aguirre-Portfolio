@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Menu from "./components/Menu";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -10,19 +10,19 @@ import GlobalState from "./context/GlobalState";
 
 function App() {
   return (
-    <>
-      <GlobalState>
-        <GlobalStyles />
+    <GlobalState>
+      <GlobalStyles />
+      <BrowserRouter basename="/portfolio">
         <Menu />
-        <Routes basename="/test_repository">
+        <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:project" element={<ProjectPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
-      </GlobalState>
-    </>
+      </BrowserRouter>
+    </GlobalState>
   );
 }
 

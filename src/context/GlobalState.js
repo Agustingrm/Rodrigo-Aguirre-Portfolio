@@ -24,6 +24,10 @@ function GlobalState({ children }) {
                     url
                   }
                 }
+                slug {
+                  current
+                }
+                location
                 projectImages {
                   asset {
                     url

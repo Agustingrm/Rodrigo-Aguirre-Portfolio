@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import example from "../assets/example.jpg";
+import PortfolioContext from "../context/PortfolioContext";
+import { useContext } from "react";
 
 const CardStyles = styled.div`
   border: 1px gray solid;
@@ -20,14 +21,19 @@ const CardStyles = styled.div`
   }
 `;
 
-function Project() {
-  return (
-    <CardStyles>
-      <img src={example} alt="Proyect" />
-      <h3>Example Title</h3>
-      <p>Location: San Miguel de Tucumán, Argentina</p>
-    </CardStyles>
-  );
+function Project({ project }, props) {
+  const context = useContext(PortfolioContext);
+  if (context.loading) {
+    return <p>Loading...</p>;
+  } else {
+    return (
+      <CardStyles>
+        <img src={project.coverImage.asset.url} alt="Proyect" />
+        <h3>{project.name}</h3>
+        <p>Location: {project.location}</p>
+      </CardStyles>
+    );
+  }
 }
 
 export default Project;
