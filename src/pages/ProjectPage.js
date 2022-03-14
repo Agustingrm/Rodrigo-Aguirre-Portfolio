@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import PortfolioContext from "../context/PortfolioContext";
 import { useContext } from "react";
@@ -40,6 +40,10 @@ const MessageStyles = styled.p`
 function ProjectPage() {
   let projectSlug = useParams();
   const context = useContext(PortfolioContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (context.loading) {
     return <p>Loading...</p>;
