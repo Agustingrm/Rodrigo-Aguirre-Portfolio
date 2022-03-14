@@ -27,6 +27,14 @@ const SectionStyles = styled.section`
     font-size: 1rem;
     color: var(--darkGray);
   }
+  @media all and (max-width: 959px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const MessageStyles = styled.p`
+  padding: 2rem;
+  font-size: 1.5rem;
 `;
 
 function ProjectPage() {
@@ -36,27 +44,28 @@ function ProjectPage() {
   if (context.loading) {
     return <p>Loading...</p>;
   } else if (!context.loading) {
-    for (let individualProject of context.projects.general) {
-      if (projectSlug.project === individualProject.slug.current) {
-        return (
-          <SectionStyles>
-            <div>
-              {individualProject.projectImages.map((image) => (
-                <img src={image.asset.url} alt="Project" />
-              ))}
-            </div>
-            <div>
-              <h2>{individualProject.name}</h2>
-              <h3>Location: {individualProject.location}</h3>
-              {individualProject.projectDescription.map((description) => (
-                <p>{description}</p>
-              ))}
-            </div>
-          </SectionStyles>
-        );
-      } else {
-        return <p>Sorry! This project doesn't exists!</p>;
-      }
+    let projectFind = context.projects.general.find(
+      (individualProject) => projectSlug.project === individualProject.slug.current
+    );
+    if (projectFind) {
+      return (
+        <SectionStyles>
+          <div>
+            {projectFind.projectImages.map((image) => (
+              <img src={image.asset.url} alt="Project" key={image.asset.url} />
+            ))}
+          </div>
+          <div>
+            <h2>{projectFind.name}</h2>
+            <h3>Location: {projectFind.location}</h3>
+            {projectFind.projectDescription.map((description, i) => (
+              <p key={i}>{description}</p>
+            ))}
+          </div>
+        </SectionStyles>
+      );
+    } else {
+      return <MessageStyles>Sorry! This project doesn't exists!</MessageStyles>;
     }
   }
 }

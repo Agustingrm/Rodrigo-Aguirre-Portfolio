@@ -4,9 +4,19 @@ const SectionStyles = styled.section`
   text-align: center;
   padding-top: 3rem;
   p {
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
     text-align: center;
+  }
+  @media all and (max-width: 959px) {
+    padding-top: 7rem;
+    h2 {
+      font-size: 2rem;
+      padding: 0 0.5rem;
+    }
+    p {
+      padding: 0 0.5rem;
+    }
   }
 `;
 

@@ -14,6 +14,12 @@ const SectionStyles = styled.section`
   p {
     margin-top: 0;
   }
+  @media all and (max-width: 650px) {
+    padding: 1rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-self: center;
+  } ;
 `;
 
 function AboutPage() {

@@ -18,6 +18,9 @@ const HeaderStyles = styled.header`
     position: relative;
     z-index: 3;
   }
+  .title {
+    display: block;
+  }
   ul {
     list-style-type: none;
     display: flex;
@@ -45,8 +48,8 @@ const HeaderStyles = styled.header`
   }
   a:hover {
     text-decoration: none;
-    color: inherit;
-    font-weight: bold;
+    color: black;
+    border: 1px inset black;
   }
   hr {
     margin-top: 0;
@@ -92,8 +95,8 @@ function Menu() {
     if (menu) {
       resetAnimations();
     } else {
-      setRotationTop({ rotate: 45, x: 0, y: 10 });
-      setRotationBottom({ rotate: 45, x: 0, y: -10 });
+      setRotationTop({ rotate: 45, x: 0, y: 11 });
+      setRotationBottom({ rotate: 45, x: 0, y: -11 });
       setRotationMiddle({ rotate: -45 });
       setMenuMovement({ y: 208 });
       setMenu(true);
@@ -102,7 +105,9 @@ function Menu() {
 
   return (
     <HeaderStyles>
-      <h1>RODRIGO &nbsp;AGUIRRE</h1>
+      <Link className="title" to="/" onClick={resetAnimations}>
+        <h1>RODRIGO &nbsp;AGUIRRE</h1>
+      </Link>
       <MenuLinesStyles onClick={handleMenuClick}>
         <motion.img
           src={menuLine}

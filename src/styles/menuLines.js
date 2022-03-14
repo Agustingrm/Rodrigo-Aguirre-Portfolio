@@ -6,9 +6,9 @@ const MenuLinesStyles = styled.div`
     display: block;
     position: absolute;
     right: 10px;
-    height: 30px;
+    height: 24px;
     width: 30px;
-    top: 5px;
+    top: 8px;
     z-index: 20;
     cursor: pointer;
     .topLine,
@@ -19,13 +19,13 @@ const MenuLinesStyles = styled.div`
       width: 30px;
     }
     .topLine {
-      top: 5px;
+      top: 0px;
     }
     .middleLine {
-      top: 15px;
+      top: 11px;
     }
     .bottomLine {
-      top: 25px;
+      top: 22px;
     }
   }
 `;

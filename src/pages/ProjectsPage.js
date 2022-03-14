@@ -11,6 +11,10 @@ const SectionStyles = styled.section`
   padding: 1rem;
   gap: 1rem;
   margin: auto;
+  @media all and (max-width: 340px) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding: 0.5rem;
+  }
 `;
 
 function ProjectsPage() {
