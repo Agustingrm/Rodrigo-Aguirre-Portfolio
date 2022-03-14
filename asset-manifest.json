@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/Rodrigo-Aguirre-Portfolio/static/js/main.504cc116.js",
+    "main.js": "/Rodrigo-Aguirre-Portfolio/static/js/main.5144216c.js",
     "static/media/portrait.jpg": "/Rodrigo-Aguirre-Portfolio/static/media/portrait.2fb1ab6926a0f545a4b1.jpg",
     "static/media/menuLine.svg": "/Rodrigo-Aguirre-Portfolio/static/media/menuLine.1ee4eaa904af661353865533f0c1882a.svg",
     "index.html": "/Rodrigo-Aguirre-Portfolio/index.html",
     "static/media/linkedinIcon.svg": "/Rodrigo-Aguirre-Portfolio/static/media/linkedinIcon.8e7ad51964a287712b3a963cd33a76fa.svg",
-    "main.504cc116.js.map": "/Rodrigo-Aguirre-Portfolio/static/js/main.504cc116.js.map"
+    "main.5144216c.js.map": "/Rodrigo-Aguirre-Portfolio/static/js/main.5144216c.js.map"
   },
   "entrypoints": [
-    "static/js/main.504cc116.js"
+    "static/js/main.5144216c.js"
   ]
 }
