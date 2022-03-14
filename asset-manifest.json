@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/portfolio-rodrigo-aguirre/static/js/main.1a0f3fad.js",
+    "static/media/portrait.jpg": "/portfolio-rodrigo-aguirre/static/media/portrait.2fb1ab6926a0f545a4b1.jpg",
+    "static/media/menuLine.svg": "/portfolio-rodrigo-aguirre/static/media/menuLine.1ee4eaa904af661353865533f0c1882a.svg",
+    "index.html": "/portfolio-rodrigo-aguirre/index.html",
+    "static/media/linkedinIcon.svg": "/portfolio-rodrigo-aguirre/static/media/linkedinIcon.8e7ad51964a287712b3a963cd33a76fa.svg",
+    "main.1a0f3fad.js.map": "/portfolio-rodrigo-aguirre/static/js/main.1a0f3fad.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.1a0f3fad.js"
+  ]
+}
