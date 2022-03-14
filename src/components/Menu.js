@@ -1,5 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import menuLine from "../assets/menuLine.svg";
+import { motion } from "framer-motion";
+import MenuLinesStyles from "../styles/menuLines";
 
 const HeaderStyles = styled.header`
   h1 {
@@ -11,6 +15,8 @@ const HeaderStyles = styled.header`
     padding: 0.5rem 0;
     font-weight: normal;
     letter-spacing: 0.05rem;
+    position: relative;
+    z-index: 3;
   }
   ul {
     list-style-type: none;
@@ -45,26 +51,103 @@ const HeaderStyles = styled.header`
   hr {
     margin-top: 0;
   }
+  @media all and (max-width: 959px) {
+    h1 {
+      height: 2.5rem;
+    }
+    hr {
+      display: none;
+    }
+    ul {
+      position: absolute;
+      top: -168px;
+      width: 100%;
+      flex-direction: column;
+      li {
+        padding: 10px 0;
+        background-color: white;
+        z-index: 2;
+        border-bottom: solid 1px gray;
+      }
+    }
+  }
 `;
 
 function Menu() {
+  const [menu, setMenu] = useState(true);
+  const [rotationTop, setRotationTop] = useState({});
+  const [rotationMiddle, setRotationMiddle] = useState({});
+  const [rotationBottom, setRotationBottom] = useState({});
+  const [menuMovement, setMenuMovement] = useState({});
+
+  const resetAnimations = () => {
+    setRotationTop({});
+    setRotationBottom({});
+    setRotationMiddle({});
+    setMenuMovement({});
+    setTimeout(() => setMenu(false), 300);
+  };
+
+  const handleMenuClick = () => {
+    if (menu) {
+      resetAnimations();
+    } else {
+      setRotationTop({ rotate: 45, x: 0, y: 10 });
+      setRotationBottom({ rotate: 45, x: 0, y: -10 });
+      setRotationMiddle({ rotate: -45 });
+      setMenuMovement({ y: 208 });
+      setMenu(true);
+    }
+  };
+
   return (
     <HeaderStyles>
       <h1>RODRIGO &nbsp;AGUIRRE</h1>
-      <ul>
+      <MenuLinesStyles onClick={handleMenuClick}>
+        <motion.img
+          src={menuLine}
+          alt=""
+          className="topLine"
+          animate={rotationTop}
+          transition={{ type: "tween" }}
+        />
+        <motion.img
+          src={menuLine}
+          alt=""
+          className="middleLine"
+          animate={rotationMiddle}
+          transition={{ type: "tween" }}
+        />
+        <motion.img
+          src={menuLine}
+          alt=""
+          className="bottomLine"
+          animate={rotationBottom}
+          transition={{ type: "tween" }}
+        />
+      </MenuLinesStyles>
+      <motion.ul animate={menu ? menuMovement : ""} transition={{ type: "tween", duration: 0.3 }}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={resetAnimations}>
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about" onClick={resetAnimations}>
+            About
+          </Link>
         </li>
         <li>
-          <Link to="/projects">Projects</Link>
+          <Link to="/projects" onClick={resetAnimations}>
+            Projects
+          </Link>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact" onClick={resetAnimations}>
+            Contact
+          </Link>
         </li>
-      </ul>
+      </motion.ul>
       <hr />
     </HeaderStyles>
   );
