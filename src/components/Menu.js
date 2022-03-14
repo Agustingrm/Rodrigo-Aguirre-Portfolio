@@ -73,6 +73,9 @@ const HeaderStyles = styled.header`
         border-bottom: solid 1px gray;
       }
     }
+    li a:hover {
+      border: none;
+    }
   }
 `;
 
