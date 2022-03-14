@@ -46,7 +46,7 @@ const HeaderStyles = styled.header`
     width: 100%;
     height: 100%;
   }
-  a:hover {
+  li a:hover {
     text-decoration: none;
     color: black;
     border: 1px inset black;
